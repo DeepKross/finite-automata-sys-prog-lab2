@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Структура для зберігання автомату
 typedef struct {
@@ -78,9 +79,13 @@ int main() {
 
     Automaton automaton = read_automaton(filename);
 
+    char w1[256] = "c";
+
     char w0[256];
     printf("Enter the word w0: ");
     scanf("%s", w0);
+
+    strcat(w0, w1);
 
     if (accepts_word_w(&automaton, w0))
         printf("The automaton accepts the word %s\n", w0);
